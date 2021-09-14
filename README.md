@@ -20,13 +20,18 @@ Per testare il servizio:
 ### e la consiglio per aprire l'immagine restituita
 
 `from PIL import Image`
+
 `import requests`
+
 `import io`
 
 
 `r = requests.get("http://localhost:8000/get_captcha")`
+
 `stream = io.BytesIO(r.content)`
+
 `image = Image.open(stream)`
+
 `image.show()`
 
 
@@ -34,5 +39,6 @@ Per testare il servizio:
 ### è una api json con un solo argomento solution a cui bisogna accoppiare la stringa letta nell'immagine precedente. L'endpoint è /validate_captcha 
 
 `r1 = requests.post("http://localhost:8000/validate_captcha",json={"solution":"pyv2lp6qu"})`
+
 `r1.text`
 
